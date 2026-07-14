@@ -12,6 +12,9 @@ dependencies = [
     "rich (>=15.0.0,<16.0.0)"
 ]
 
+[project.scripts]
+duck-tape = "duck_tape.main:app"
+
 [tool.poetry]
 packages = [{include = "duck_tape", from = "src"}]
 

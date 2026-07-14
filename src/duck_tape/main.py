@@ -1,12 +1,12 @@
 import typer
-from duck_tape.commands import hello
+from duck_tape.commands import code
 app = typer.Typer(
     name="duck-tape",
     help="Personal scripts and utilities held together with questionable engineering.",
     no_args_is_help=True,
 )
 
-app.add_typer(hello.app, name="hello", help="Say hello to the world.")
+app.add_typer(code.app, name="code", help="Code Commands for Ian's Projects.")
 
 @app.command()
 def version() -> None:
