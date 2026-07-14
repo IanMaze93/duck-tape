@@ -10,6 +10,5 @@ def display_projects():
     - DataPulse | HomeLab
     - AskAlfred
     - 8Bit - Backend
-    - 9Bit - Frontend
     """)
     pass
