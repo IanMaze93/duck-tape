@@ -1,4 +1,3 @@
-
 import os
 import subprocess
 
@@ -15,8 +14,7 @@ server_project_dir = os.getenv("SERVER_PROJECT_DIR")
 
 def docker_deploy(project: str) -> None:
     remote_command = (
-        f"cd {server_project_dir}/{project} && "
-        "docker compose up --build -d"
+        f"cd {server_project_dir}/{project} && docker compose up --build -d"
     )
 
     subprocess.run(
@@ -27,6 +25,7 @@ def docker_deploy(project: str) -> None:
         ],
         check=True,
     )
+
 
 def docker_deploy_command(project: str) -> None:
     """
