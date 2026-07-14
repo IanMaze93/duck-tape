@@ -1,9 +1,10 @@
 from rich.console import Console
 
+
 def display_projects():
     console = Console()
     console.print("""
-    Projects: 
+    Projects:
 
     - Web Portfolio
     - DataPulse | HomeLab

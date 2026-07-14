@@ -1,4 +1,3 @@
-from pathlib import Path
 import typer
 from rich.console import Console
 
@@ -13,9 +12,14 @@ app = typer.Typer(
 project = "8Bit-Backend"
 console = Console()
 
-@app.command("pull-changes-to-server", help="Pull the latest changes from the remote repository for the 8Bit Backend project.")
+
+@app.command(
+    "pull-changes-to-server",
+    help="Pull the latest changes from the remote repository for the 8Bit Backend project.",
+)
 def pull_changes_command() -> None:
     git_pull_changes(project)
+
 
 @app.command("deploy-to-server", help="Deploy the 8Bit Backend project to the server.")
 def deploy_to_server_command() -> None:
