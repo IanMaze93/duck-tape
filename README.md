@@ -1,7 +1,7 @@
 ## Duck-Tape
 
 This Repo is for personal CLI scripts to ease development
-
+<img width="1254" height="1254" alt="image" src="https://github.com/user-attachments/assets/07db5ba3-5833-472c-a699-55906b1a6f6c" />
 # Getting Started
 
 ## Install dependencies
