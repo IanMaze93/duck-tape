@@ -1,6 +1,6 @@
 ## Duck-Tape
 
-This Repo is for personal scripts to ease development
+This Repo is for personal CLI scripts to ease development
 
 # Getting Started
 
@@ -20,10 +20,10 @@ poetry run pre-commit install
 
 # Development
 
-Run the API:
+Run the CLI:
 
 ```bash
-poetry run python src/duck_tape/main.py
+poetry run duck-tape
 ```
 
 Run the test suite:
