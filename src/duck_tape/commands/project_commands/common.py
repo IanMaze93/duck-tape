@@ -12,9 +12,3 @@ def display_projects():
     - 9Bit - Frontend
     """)
     pass
-
-def connect_to_server():
-    """
-    Connects to the server.
-    """
-    pass
