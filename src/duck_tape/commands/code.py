@@ -4,6 +4,8 @@ from duck_tape.commands.project_commands import eight_bit_backend
 import typer
 from rich.console import Console
 
+console = Console()
+
 app = typer.Typer(
     help="Code Commands for Ian's Projects",
     no_args_is_help=True,
@@ -25,8 +27,6 @@ app.add_typer(
     name="data-pulse",
     help="Code Commands for Ian's DataPulse HomeLab Project.",
 )
-
-console = Console()
 
 
 @app.command("display-projects", help="Display all projects in the current directory.")
