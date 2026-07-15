@@ -4,7 +4,6 @@
 
 <img width="835" height="561" alt="image" src="https://github.com/user-attachments/assets/dec08c57-7d89-428a-bd49-86f555b92321" />
 
-
 ## This Repo is for personal CLI scripts to ease development
 
 # Getting Started
@@ -53,4 +52,10 @@ Run all pre-commit hooks:
 
 ```bash
 poetry run pre-commit run --all-files
+```
+
+## Setup Executable
+
+```bas
+poetry run duck-tape setup
 ```
