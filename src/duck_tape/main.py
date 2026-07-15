@@ -1,9 +1,11 @@
 from rich.console import Console
+from duck_tape.tools.linux.create_executable import create_executable
 from duck_tape.tools.logo import get_logo
 import typer
 from duck_tape.commands import code
 
 app = typer.Typer(
+    add_completion=False,
     name="duck-tape",
     help="Personal scripts and utilities held together with questionable engineering.",
     no_args_is_help=True,
@@ -21,6 +23,11 @@ def version() -> None:
     """Display the installed version."""
 
     typer.echo("duck-tape 0.1.0")
+
+
+@app.command(help="Setup duck-tape on your system. | Linux Only")
+def setup() -> None:
+    create_executable()
 
 
 if __name__ == "__main__":
