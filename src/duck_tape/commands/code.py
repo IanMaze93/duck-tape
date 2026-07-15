@@ -1,4 +1,5 @@
 from duck_tape.commands.project_commands.common import display_projects
+from duck_tape.tools.dev_tools.tools import development_startup
 from duck_tape.commands.project_commands import data_pulse, web_portfolio
 from duck_tape.commands.project_commands import eight_bit_backend
 import typer
@@ -20,7 +21,7 @@ app.add_typer(
 app.add_typer(
     eight_bit_backend.app,
     name="8bit-backend",
-    help="Code Commands for Ian's 8Bit's Backend Project.",
+    help="Code Commands for Ian's 8Bit Backend Project.",
 )
 app.add_typer(
     data_pulse.app,
@@ -29,6 +30,12 @@ app.add_typer(
 )
 
 
+# Other code-related commands can be added here as needed
 @app.command("display-projects", help="Display all projects in the current directory.")
 def display_projects_command():
     display_projects()
+
+
+@app.command(help="Startup development applications and windows")
+def dev_startup() -> None:
+    development_startup()
