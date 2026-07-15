@@ -14,13 +14,13 @@ console = Console()
 
 
 @app.command(
-    "pull-changes-to-server",
-    help="Pull the latest changes from the remote repository for the 8Bit Backend project.",
+    "pull",
+    help="Pull the latest changes from the remote repository to the server.",
 )
 def pull_changes_command() -> None:
     git_pull_changes(project)
 
 
-@app.command("deploy-to-server", help="Deploy the 8Bit Backend project to the server.")
+@app.command("deploy", help="Deploy the 8Bit Backend project to the server.")
 def deploy_to_server_command() -> None:
     docker_deploy_command(project)
