@@ -1,5 +1,6 @@
 from rich.console import Console
 from duck_tape.tools.browser.open import open_browser
+from duck_tape.tools.discord.discord import launch_discord
 from duck_tape.tools.ide.code import launch_vscode
 from duck_tape.tools.music.spotify import launch_spotify
 import os
@@ -24,6 +25,8 @@ def development_startup() -> None:
     open_browser("https://github.com")
 
     launch_vscode()
+
+    launch_discord()
 
     launch_spotify()
 
