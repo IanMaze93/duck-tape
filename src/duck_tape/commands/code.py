@@ -1,7 +1,7 @@
 from duck_tape.commands.project_commands.common import display_projects
 from duck_tape.tools.dev_tools.tools import development_startup
 from duck_tape.commands.project_commands import data_pulse, web_portfolio
-from duck_tape.commands.project_commands import eight_bit_backend
+from duck_tape.commands.project_commands import eight_bit_backend, eight_bit_discord_bot
 import typer
 from rich.console import Console
 
@@ -22,6 +22,11 @@ app.add_typer(
     eight_bit_backend.app,
     name="8bit-backend",
     help="Code Commands for Ian's 8Bit Backend Project.",
+)
+app.add_typer(
+    eight_bit_discord_bot.app,
+    name="8bit-discord-bot",
+    help="Code Commands for Ian's 8Bit Discord Bot Project.",
 )
 app.add_typer(
     data_pulse.app,
