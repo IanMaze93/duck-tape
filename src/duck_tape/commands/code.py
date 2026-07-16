@@ -1,38 +1,35 @@
-from duck_tape.commands.project_commands.common import display_projects
-from duck_tape.tools.dev_tools.tools import development_startup
-from duck_tape.commands.project_commands import data_pulse, web_portfolio
-from duck_tape.commands.project_commands import eight_bit_backend, eight_bit_discord_bot
+import os
 import typer
 from rich.console import Console
+from dotenv import load_dotenv
+from pathlib import Path
+from duck_tape.commands.project_commands.common import display_projects
+from duck_tape.tools.dev_tools.tools import development_startup
+from duck_tape.commands.project_commands import create
 
+load_dotenv()
 console = Console()
+
+projects_path = Path.home() / os.getenv("PROJECTS_PATH")
 
 app = typer.Typer(
     help="Code Commands for Ian's Projects",
     no_args_is_help=True,
 )
 
-# Add the project-specific commands under code
-app.add_typer(
-    web_portfolio.app,
-    name="web_portfolio",
-    help="Code Commands for Ian's Web Portfolio.",
-)
-app.add_typer(
-    eight_bit_backend.app,
-    name="8bit-backend",
-    help="Code Commands for Ian's 8Bit Backend Project.",
-)
-app.add_typer(
-    eight_bit_discord_bot.app,
-    name="8bit-discord-bot",
-    help="Code Commands for Ian's 8Bit Discord Bot Project.",
-)
-app.add_typer(
-    data_pulse.app,
-    name="data-pulse",
-    help="Code Commands for Ian's DataPulse HomeLab Project.",
-)
+# Pull all projects in the specfied directory
+subdirectories = [
+    directory for directory in projects_path.iterdir() if directory.is_dir()
+]
+
+# Dynamically create a Typer app for each subdirectory
+for subdirectory in subdirectories:
+    # Create a Typer app for the subdirectory using the create_project function
+    create_app = create.create_project(subdirectory.name)
+    app.add_typer(
+        create_app,
+        name=subdirectory.name,
+    )
 
 
 # Other code-related commands can be added here as needed
