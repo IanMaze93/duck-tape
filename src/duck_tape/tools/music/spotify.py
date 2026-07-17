@@ -13,7 +13,6 @@ def launch_spotify():
     try:
         subprocess.Popen(["spotify"])
         sleep(2)
-        subprocess.run(["playerctl", "-p", "spotify", "play"])
         console.print("[green]Spotify launched successfully![/green]")
     except subprocess.CalledProcessError as e:
         console.print(f"[red]Failed to launch Spotify: {e}[/red]")
