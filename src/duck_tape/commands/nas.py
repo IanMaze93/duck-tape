@@ -1,15 +1,21 @@
-from duck_tape.commands.backup_commands.all import backup_all
-from duck_tape.commands.backup_commands.notes import backup_notes
-from duck_tape.commands.backup_commands.databases import backup_databases
+from duck_tape.commands.nas_commands.all import backup_all
+from duck_tape.commands.nas_commands.notes import backup_notes
+from duck_tape.commands.nas_commands.databases import backup_databases
+from duck_tape.tools.nas.check_space import check_space
 import typer
 from rich.console import Console
 
 console = Console()
 
 app = typer.Typer(
-    help="Backup Commands",
+    help="NAS Commands",
     no_args_is_help=True,
 )
+
+
+@app.command("check-space", help="Show NAS storage details.")
+def check_space_command():
+    check_space()
 
 
 @app.command("backup-all", help="Backup everything.")
