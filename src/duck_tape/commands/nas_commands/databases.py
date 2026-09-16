@@ -9,6 +9,8 @@ username = os.getenv("SSH_USERNAME")
 server = os.getenv("SSH_SERVER_IP")
 eight_bit_database = os.getenv("EIGHT_BIT_DATABASE")
 eight_bit_database_path = os.getenv("EIGHT_BIT_DATABASE_DESTINATION_PATH")
+feed_database_path = os.getenv("FEED_DATABASE_DESTINATION_PATH")
+feed_database = os.getenv("FEED_DATABASE")
 planka_database_path = os.getenv("PLANKA_DATABASE_PATH")
 planka_database = os.getenv("PLANKA_DATABASE")
 server_connection = os.getenv("SERVER_CONNECTION")
@@ -76,4 +78,30 @@ def backup_databases():
             plank_remote_command,
         ],
         check=True,
+    )
+
+    # Backup Feed database
+    remote_feed_backup_path = f"{feed_database_path.rstrip('/')}/backup-{new_date}"
+
+    console.log(
+        f"Backing up Feed database to the server: {source_path} -> {remote_feed_backup_path}",
+        style="bold green",
+    )
+
+    feed_remote_command = (
+        f"docker exec {feed_database} mongodump --archive > {remote_feed_backup_path}"
+    )
+
+    subprocess.run(
+        [
+            "ssh",
+            f"{username}@{server}",
+            feed_remote_command,
+        ],
+        check=True,
+    )
+
+    console.log(
+        "Backup completed for all databases.",
+        style="bold green",
     )
